@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Design Hub</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    
+    <!-- Unified Persistent Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" id="home-link">
+                <div class="logo-box">SD</div>
+                <span class="logo-text">System Design Hub</span>
+            </a>
+            
+            <!-- Contextual Nav Links for Detail View -->
+            <ul class="nav-links" id="detail-nav-links" style="display: none;">
+                <li><a href="#section-overview">Overview</a></li>
+                <li><a href="#section-architecture">Architecture</a></li>
+                <li><a href="#section-microservices">Microservices</a></li>
+                <li><a href="#section-database">Database</a></li>
+                <li><a href="#section-security">Security</a></li>
+                <li><a href="#section-monitoring">Monitoring</a></li>
+            </ul>
+
+            <a href="#" class="nav-btn" id="nav-action-btn">
+                <i data-lucide="github"></i> View Resource
+            </a>
+        </div>
+    </nav>
+
+    <!-- 1. GALLERY VIEW (The 50 Case Studies Grid) -->
+    <div id="gallery-view">
+        <section class="hero">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-content">
+                <div class="hero-badge">Curated Architectural Deep Dives</div>
+                <h1 class="hero-title">Master <span class="gradient-text">System Design</span><br>One Case at a Time</h1>
+                <p class="hero-subtitle">50 comprehensive architecture breakdowns covering everything from URL Shorteners to massive distributed systems like the Online Exam Portal.</p>
+                
+                <div class="search-container">
+                    <i data-lucide="search"></i>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search architectures (e.g. 'Kafka', 'Rate Limiter')">
+                </div>
+            </div>
+        </section>
+
+        <main class="container" style="padding-bottom: 6rem;">
+            <div class="filter-tags">
+                <button class="filter-tag active" data-filter="all">All Topics (50)</button>
+                <button class="filter-tag" data-filter="distributed">Distributed Systems</button>
+                <button class="filter-tag" data-filter="social">Social Media</button>
+                <button class="filter-tag" data-filter="data">Real-Time Data</button>
+            </div>
+
+            <div id="card-container" class="card-grid">
+                <!-- Javascript injects the 50 cards here -->
+            </div>
+        </main>
+    </div>
+
+
+    <!-- 2. DETAIL VIEW (The "Modern Way" dynamic template) -->
+    <div id="detail-view" style="display: none;">
+        
+        <!-- Document Hero -->
+        <section id="section-overview" class="doc-hero">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-content">
+                <a href="#" class="back-link btn-secondary" onclick="window.location.hash = ''; return false;">
+                    <i data-lucide="arrow-left"></i> Back to Hub
+                </a>
+                <div class="hero-badge doc-date">System Design Document &middot; 2026</div>
+                <h1 class="hero-title gradient-text" id="doc-title">Case Study Title</h1>
+                <p class="hero-subtitle" id="doc-overview">Overview description goes here.</p>
+                
+                <div class="stats-bar" id="doc-tags">
+                    <!-- Tech tags injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Requirements Section -->
+        <section id="section-requirements" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">Requirements Analysis</div>
+                    <h2>System Requirements</h2>
+                    <p>Functional and Non-Functional requirements guiding the architecture.</p>
+                </div>
+
+                <div class="req-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <!-- Functional Requirements -->
+                    <div class="req-card functional" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 2rem;">
+                        <div class="req-header" style="margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i data-lucide="settings"></i>
+                            <h3 style="color: #fff; font-family: var(--font-heading);">Functional Requirements</h3>
+                        </div>
+                        <div class="req-features" id="doc-req-features" style="display: flex; flex-direction: column; gap: 1rem;">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Non-Functional & Scale -->
+                    <div class="req-side" style="display: flex; flex-direction: column; gap: 2rem;">
+                        <div class="req-card non-functional" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 2rem;">
+                            <div class="req-header" style="margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i data-lucide="ruler"></i>
+                                <h3 style="color: #fff; font-family: var(--font-heading);">Non-Functional Requirements</h3>
+                            </div>
+                            <ul class="nfr-list" style="list-style: none;">
+                                <li style="margin-bottom: 1rem;">
+                                    <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;"><strong>Scalability</strong> <span style="font-size:0.85rem; color:var(--text-secondary);">High Concurrency</span></div>
+                                    <div style="height:4px; background:rgba(255,255,255,0.1); border-radius:2px;"><div style="width:85%; height:100%; background:var(--accent); border-radius:2px;"></div></div>
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;"><strong>Availability</strong> <span style="font-size:0.85rem; color:var(--text-secondary);">99.99% Uptime</span></div>
+                                    <div style="height:4px; background:rgba(255,255,255,0.1); border-radius:2px;"><div style="width:95%; height:100%; background:#22c55e; border-radius:2px;"></div></div>
+                                </li>
+                                <li style="margin-bottom: 1rem;">
+                                    <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;"><strong>Performance</strong> <span style="font-size:0.85rem; color:var(--text-secondary);">< 500ms</span></div>
+                                    <div style="height:4px; background:rgba(255,255,255,0.1); border-radius:2px;"><div style="width:90%; height:100%; background:#f59e0b; border-radius:2px;"></div></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Architecture Section -->
+        <section id="section-architecture" class="section alt-bg">
+            <div class="container">
+                <div class="section-header center">
+                    <div class="section-tag">High-Level Design</div>
+                    <h2>System Architecture</h2>
+                    <p id="doc-architecture-text">Architecture description.</p>
+                </div>
+
+                <div class="arch-layer-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: flex-start;">
+                    <!-- Left: Accordion Layers -->
+                    <div class="arch-accordion" id="doc-arch-accordion" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <!-- Injected by JS -->
+                    </div>
+                    
+                    <!-- Right: Info Panel -->
+                    <div class="arch-info-panel" id="doc-arch-info" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 2rem; position: sticky; top: 100px;">
+                        <div style="text-align: center; color: var(--text-secondary); padding: 4rem 0;">Click a layer to explore details</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Microservices List -->
+        <section id="section-microservices" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">Service Decomposition</div>
+                    <h2>Microservices Architecture</h2>
+                    <p>Discrete bounded contexts ensuring independent scalable deployments.</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+                    <div class="services-nav" id="doc-ms-tabs" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <!-- Tabs injected -->
+                    </div>
+
+                    <div class="service-detail-card" id="doc-ms-detail" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 2rem; min-height: 400px;">
+                        <div style="text-align: center; color: var(--text-secondary); padding: 4rem 0;">Select a service to view endpoints and DB schema</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Database & Data Layer -->
+        <section id="section-database" class="section alt-bg">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">Persistence</div>
+                    <h2>Database Strategy</h2>
+                    <p id="doc-db-text">Database description.</p>
+                </div>
+
+                <div class="db-grid" style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem;">
+                    <div class="db-tables" id="doc-db-tabs" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                         <!-- Pill Tabs injected -->
+                    </div>
+
+                    <div class="db-schema-viewer w-100" id="doc-db-detail" style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden;">
+                        <div style="padding: 4rem 2rem; text-align: center; color: var(--text-secondary);">Select a table to view schema</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security & Monitoring (Combined grid for demo) -->
+        <section id="section-security" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-tag">Observability & Protection</div>
+                    <h2>Security & Monitoring</h2>
+                </div>
+                
+                <div class="sec-details">
+                    <div class="controls-block">
+                        <h4><i data-lucide="shield-check"></i> Security Protocols</h4>
+                        <p class="mb-4" id="doc-security-text">Sec text.</p>
+                        <ul class="controls-list">
+                            <li><strong>In Transit:</strong> TLS 1.3</li>
+                            <li><strong>At Rest:</strong> AES-256</li>
+                            <li><strong>Auth:</strong> OAuth2 / JWT</li>
+                            <li><strong>Edge:</strong> WAF & DDoS Shield</li>
+                        </ul>
+                    </div>
+                    <div class="controls-block">
+                        <h4><i data-lucide="activity"></i> System Monitoring</h4>
+                        <p class="mb-4" id="doc-monitoring-text">Mon text.</p>
+                        <ul class="controls-list">
+                            <li><strong>Metrics:</strong> Prometheus & Grafana</li>
+                            <li><strong>Logs:</strong> ELK Stack</li>
+                            <li><strong>Tracing:</strong> Datadog APM</li>
+                            <li><strong>Alerts:</strong> PagerDuty</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="footer" style="padding: 4rem 0 2rem; background: rgba(15, 23, 42, 0.95); border-top: 1px solid var(--card-border);">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem;">
+                <div style="max-width: 400px;">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <div class="logo-box">SD</div>
+                        <span>System Design Hub</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Master 50 architectural deep-dives from basic URL shorteners to global distributed systems. Built for engineers scaling massive applications.</p>
+                </div>
+                <div style="display: flex; gap: 4rem;">
+                    <div>
+                        <h4 style="color: #fff; margin-bottom: 1rem; font-family: var(--font-heading);">Navigate</h4>
+                        <ul style="list-style: none; color: var(--text-secondary); font-size: 0.95rem; line-height: 2;">
+                            <li><a href="#" onclick="window.location.hash=''; return false;">All Studies (50)</a></li>
+                            <li><a href="#">Distributed Systems</a></li>
+                            <li><a href="#">Data Engineering</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #fff; margin-bottom: 1rem; font-family: var(--font-heading);">About</h4>
+                        <ul style="list-style: none; color: var(--text-secondary); font-size: 0.95rem; line-height: 2;">
+                            <li><a href="#">Contributors</a></li>
+                            <li><a href="#">Open Source License</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid var(--card-border); padding-top: 2rem; text-align: center; color: var(--text-secondary); font-size: 0.85rem;">
+                <p>&copy; 2026 System Design Hub &middot; Educational Architecture Repository</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
